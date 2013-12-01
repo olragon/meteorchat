@@ -14,6 +14,8 @@
 				<li>Hiển thị thời gian message chat được gửi, người gửi</li>
 				<li>Enter để gửi</li>
 				<li>Avatar</li>
+				<li>Nhóm messages lại theo tên người chat</li>
+				<li>Tự động hiển thị link</li>
 			</ul>
 		{{else}}
 			<div class="row">
@@ -71,7 +73,7 @@
 		<td><img src="{{message.from.profile.avatar}}?s=32"></td>
 		<td>
 			<strong>{{message.from.profile.name}}</strong><br>
-			<span class="text">{{message.content}}</span>
+			<span class="text">{{{message.content}}}</span>
 			<small class="text-muted pull-right">{{message.created}}</small>
 		</td>
 

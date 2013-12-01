@@ -6,6 +6,7 @@ Template.profile.events({
 		var formValues = $form.serializeJSON();
 		profile = _.extend(me.profile || {}, formValues.profile);
 		Meteor.users.update(me._id, { $set: { profile: profile } });
+		Meteor.call('updateAvatar', me._id);
 		return false;
 	}
 });

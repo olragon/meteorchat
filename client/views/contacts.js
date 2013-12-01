@@ -1,11 +1,9 @@
 Template.contacts.helpers({
 	users: function () {
-		var users = [];
+		var users = {};
 		Meteor.presences.find().forEach(function (presence) {
-			if (presence.userId != Meteor.userId()) {
-				users.push(Meteor.users.findOne(presence.userId));
-			}
+			users[presence.userId] = Meteor.users.findOne(presence.userId);
 		});
-		return users;
+		return _.toArray(users);
 	}
 });
