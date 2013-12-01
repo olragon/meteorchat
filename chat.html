@@ -1,0 +1,119 @@
+<head>
+  <title>Chat</title>
+</head>
+
+<body>
+	<div class="container">
+		{{#unless currentUser}}
+			<h2>Chào mừng bạn đến với Meteor Chat. <br>Nhấn {{loginButtons}} để đăng nhập hoặc đăng ký tài khoản.</h2>
+			<p>Chức năng của Meteor Chat</p>
+			<ul>
+				<li>Đăng ký, đăng nhập, quản lý tài khoản</li>
+				<li>Chat</li>
+				<li>Xem danh sách người dùng online</li>
+				<li>Hiển thị thời gian message chat được gửi, người gửi</li>
+				<li>Enter để gửi</li>
+				<li>Avatar</li>
+			</ul>
+		{{else}}
+			<div class="row">
+				<div class="col-md-6">
+					<h2>Meteor Chat</h2>
+				</div>
+				<div class="col-md-6">
+					<h2 class="pull-right">Hi {{loginButtons}}</h2>
+				</div>
+			</div>
+			{{#unless currentUser.profile.name}}
+				<div class="col-md-12">
+					<div class="alert alert-warning">Nhập thông tin cần thiết.</div>
+					{{> profile}}
+				</div>
+			{{else}}
+				<div class="row">
+					<div class="col-md-8">
+						{{> messages_container}}
+					</div>
+					<div class="col-md-4">
+						{{> contacts}}
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 chat">
+						{{> chat}}
+					</div>
+				</div>
+			{{/unless}}
+		{{/unless}}
+	</div>
+</body>
+
+<template name="messages_container">
+	<div class="messages">
+		{{> messages}}
+	</div>
+</template>
+
+<template name="messages">
+
+	<table class="table table-striped table-condensed">
+		<tbody>
+			{{#each messages}}
+				<tr>{{> message this}}</tr>
+			{{/each}}
+		</tbody>
+	</table>
+
+</template>
+
+<template name="message">
+	
+		<td><img src="{{message.from.profile.avatar}}?s=32"></td>
+		<td>
+			<strong>{{message.from.profile.name}}</strong><br>
+			<span class="text">{{message.content}}</span>
+			<small class="text-muted pull-right">{{message.created}}</small>
+		</td>
+
+</template>
+
+<template name="chat">
+	<form>
+		<input type="hidden" name="to" value="public">
+		{{#if currentUser}}
+			<div class="row">
+				<div class="col-md-9">
+					<textarea class="form-control" placeholder="Nội dung chat" name="content"></textarea>
+				</div>
+				<div class="col-md-3">
+					<button class="btn btn-primary">Gửi</button>
+					<div class="form-checkbox">
+						<label><input type="checkbox" {{#if enterToSend}}checked{{/if}}> Enter để gửi</label>
+					</div>
+				</div>
+			</div>
+		{{else}}
+			<textarea class="form-control" disabled placeholder="Vui lòng đăng nhập trước khi chat."></textarea>
+		{{/if}}
+	</form>
+</template>
+
+<template name="profile">
+	<form class="well">
+		<fieldset>
+			<legend>Thông tin</legend>
+			<div class="form-group">
+				<label for="name">Tên</label>
+				<input type="text" class="form-control" name="profile[name]" placeholder="Tên" id="name">
+			</div>
+		</fieldset>
+		<button class="btn btn-primary">Lưu</button>
+	</form>
+</template>
+
+<template name="contacts">
+	Users online ({{users.length}})
+	{{#each users}}
+		<br><a href="#">{{profile.name}}</a>
+	{{/each}}
+</template>

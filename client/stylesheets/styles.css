@@ -1,0 +1,8 @@
+.chat {
+	bottom: 0;
+	position: fixed;
+}
+.messages {
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
