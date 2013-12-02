@@ -4,7 +4,7 @@ meteorchat
 Simple chat room based on Meteor.
 
 - Demo: http://chatsg.meteor.com
-- Screenshot: ![MeteorChat in action](https://lh3.googleusercontent.com/EgckrGI9S0v3PbhrCFe5X5TnqrzydmoKFFkRd3dg5cbJfS4jbWyWbUJiqRPnAe4yMDgcgLzcM-A)
+- Screenshot: ![MeteorChat in action](http://i.minus.com/jJoC6cdJXgVzs.png)
 - License: MIT
 
 ## Features ##
