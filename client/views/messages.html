@@ -1,0 +1,11 @@
+<template name="messages">
+
+	<table class="table table-striped table-condensed">
+		<tbody>
+			{{#each messages}}
+				<tr>{{> message this}}</tr>
+			{{/each}}
+		</tbody>
+	</table>
+
+</template>

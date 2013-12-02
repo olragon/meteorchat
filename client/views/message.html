@@ -1,0 +1,10 @@
+<template name="message">
+	
+		<td><img src="{{message.from.profile.avatar}}?s=32"></td>
+		<td>
+			<strong>{{message.from.profile.name}}</strong><br>
+			<span class="text">{{{message.content}}}</span>
+			<small class="text-muted pull-right">{{message.created}}</small>
+		</td>
+
+</template>

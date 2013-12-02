@@ -4,7 +4,7 @@ Template.message.helpers({
 		var created = message.created;
 		var creator = Meteor.users.findOne(message.from);
 		var message = _.extend(message, {
-			created: [created.getHours(), created.getMinutes(), created.getSeconds()].join(':') +' '+ [created.getDate(), created.getMonth() + 1, created.getFullYear()].join('/'),
+			created: [created.getHours(), created.getMinutes(), created.getSeconds()].join(':') +' - '+ [created.getDate(), created.getMonth() + 1, created.getFullYear()].join('/'),
 			from: creator
 		});
 

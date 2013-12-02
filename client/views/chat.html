@@ -1,0 +1,20 @@
+<template name="chat">
+	<form>
+		<input type="hidden" name="to" value="public">
+		{{#if currentUser}}
+			<div class="row">
+				<div class="col-md-9">
+					<textarea class="form-control" placeholder="Nội dung chat" name="content"></textarea>
+				</div>
+				<div class="col-md-3">
+					<button class="btn btn-primary">Gửi</button>
+					<div class="form-checkbox">
+						<label><input type="checkbox" {{#if enterToSend}}checked{{/if}}> Enter để gửi</label>
+					</div>
+				</div>
+			</div>
+		{{else}}
+			<textarea class="form-control" disabled placeholder="Vui lòng đăng nhập trước khi chat."></textarea>
+		{{/if}}
+	</form>
+</template>

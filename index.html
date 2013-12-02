@@ -1,0 +1,58 @@
+<head>
+  <title>Chat</title>
+</head>
+
+<body>
+	<div class="container-fluid">
+		{{#unless currentUser}}
+			<h2>Chào mừng bạn đến với Meteor Chat. <br>Nhấn {{loginButtons}} để đăng nhập hoặc đăng ký tài khoản.</h2>
+			<p>Chức năng của Meteor Chat</p>
+			<ul>
+				<li>Đăng ký, đăng nhập, quản lý tài khoản</li>
+				<li>Chat</li>
+				<li>Xem danh sách người dùng online</li>
+				<li>Hiển thị thời gian message chat được gửi, người gửi</li>
+				<li>Enter để gửi message</li>
+				<li>Avatar</li>
+				<li>Nhóm messages lại theo tên người chat</li>
+				<li>Tự động hiển thị link</li>
+				<li>Tự động hiển thị hình</li>
+			</ul>
+		{{else}}
+			<div class="row">
+				<div class="col-md-6">
+					<h2>Meteor Chat</h2>
+				</div>
+				<div class="col-md-6">
+					<h2 class="pull-right">Hi {{loginButtons align="right"}}</h2>
+				</div>
+			</div>
+
+			{{#unless currentUser.profile.name}}
+				<div class="col-md-12">
+					<div class="alert alert-warning">Nhập thông tin cần thiết.</div>
+					{{> profile}}
+				</div>
+			{{else}}
+				<div class="row">
+					<div class="col-md-9">
+						{{> messages_container}}
+					</div>
+					<div class="col-md-3">
+						{{> settings}}
+						<hr>
+						{{#isolate}}
+							{{> contacts}}
+						{{/isolate}}
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 chat">
+						{{> chat}}
+					</div>
+				</div>
+			{{/unless}}
+
+		{{/unless}}
+	</div>
+</body>

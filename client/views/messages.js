@@ -33,7 +33,7 @@ Template.messages.rendered = function () {
 			'max-height': maxHeight
 		});
 
-		$messages.animate({scrollTop: $messages.get(0).scrollHeight}, 0);
+		App.scrollBottom();
 	};
 
 	$(window).resize(function() {
