@@ -4,7 +4,6 @@ Template.chat.helpers({
 	}
 });
 
-
 function submitForm(e) {
 	e.preventDefault();
 
@@ -21,7 +20,6 @@ function submitForm(e) {
 			$form.find('textarea').val('');
 		}
 	});
-
 	return false;
 }
 
@@ -49,3 +47,9 @@ Template.chat.events({
 		}
 	}
 });
+
+Template.chat.rendered = function () {
+	ModuleLoader.ready('filepicker', function (filepicker) {
+		console.log(filepicker);
+	});
+};

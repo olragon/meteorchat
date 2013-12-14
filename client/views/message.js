@@ -8,6 +8,25 @@ Template.message.helpers({
 			from: creator
 		});
 
+		// hiển thị file
+		if (message.type && message.type === 'file') {
+			var InkBlobs = _.isString(message.content) ? JSON.parse(message.content) : message.content;
+			var content = '<div>';
+			_.each(InkBlobs, function (InkBlob) {
+				content += '<div class="row">';
+				content += '	<div class="col-md-1"><i class="glyphicon glyphicon-file"></i></div>';
+				content += '	<div class="col-md-5">';
+				if (InkBlob && InkBlob.mimetype && InkBlob.mimetype.match(/^image/)) {
+					content += '	<a href="'+ InkBlob.url +'"><img src="'+ InkBlob.url +'" class="thumbnail"></a>';
+				}
+				content += '	<a href="'+ InkBlob.url +'">'+ InkBlob.filename +' ('+ bytesToSize(InkBlob.size) +') </a>';
+				content += '</div>'
+			});
+			content += '</div>';
+
+			message.content = content;
+		}
+
 		// hiển thị link
 		if (message.content) {
 			message.content = message.content.autoLink({

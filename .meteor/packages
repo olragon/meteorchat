@@ -16,3 +16,4 @@ jquery-serializeJSON
 presence
 crypto-md5
 gravatar
+module-loader

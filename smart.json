@@ -3,6 +3,7 @@
     "bootstrap-3": {},
     "presence": {},
     "crypto-md5": {},
-    "gravatar": {}
+    "gravatar": {},
+    "module-loader": {}
   }
 }
