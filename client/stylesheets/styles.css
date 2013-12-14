@@ -9,6 +9,9 @@
 .overlay {
 	margin: auto;
 	text-align: center;
+	z-index: 999;
+	background-color: white;
+	opacity: 1;
 }
 
 .overlay-content {
@@ -34,4 +37,16 @@
 
 .uploadprogress {
 	display: none;
+}
+
+#background {
+	position: fixed; 
+	top: 0; 
+	left: 0; 
+	
+	/* Preserve aspet ratio */
+	min-width: 100%;
+	min-height: 100%;
+	opacity: 0.3;
+	background-color: #ccc;
 }

@@ -1,0 +1,9 @@
+<template name="files">
+
+	<strong>Files ({{files.length}})</strong>
+	<ul>
+	{{#each files}}
+		<li><a href="{{url}}" target="_blank">{{filename}}</a> <small>({{size}})</small></li>
+	{{/each}}
+	</ul>
+</template>

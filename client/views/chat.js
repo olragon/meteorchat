@@ -1,6 +1,6 @@
 Template.chat.helpers({
 	enterToSend: function () {
-		return Session.get('enterToSend');
+		return Session.get('enterToSend', true);
 	}
 });
 
@@ -47,9 +47,3 @@ Template.chat.events({
 		}
 	}
 });
-
-Template.chat.rendered = function () {
-	ModuleLoader.ready('filepicker', function (filepicker) {
-		console.log(filepicker);
-	});
-};

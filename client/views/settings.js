@@ -11,7 +11,7 @@ Template.settings.events({
 Template.settings.helpers({
 	settings: function () {
 		return {
-			autoScroll: Session.get('autoScroll', false)
+			autoScroll: Session.get('autoScroll', true)
 		}
 	}
 });
