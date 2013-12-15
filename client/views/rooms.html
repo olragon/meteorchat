@@ -4,7 +4,11 @@
 		{{#each rooms}}
 			<div class="list-group-item {{#if $eq activeRoom _id}}active{{/if}}">
 				<a href="#" data-op="join" data-room="{{_id}}">
-				  {{name}}
+				  {{#if $eq type 'public'}}
+				  	<i class="fa fa-users"></i>
+				  {{else}}
+				  	<i class="fa fa-user"></i>
+				  {{/if}} {{name}} {{#if unread}}<small>({{unread}})</small>{{/if}}
 				</a>
 				<a href="#" data-op="unsubscribe" data-room="{{_id}}" class="pull-right">
 					x

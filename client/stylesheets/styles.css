@@ -62,3 +62,7 @@
 .list-group-item.active a {
 	color: white;
 }
+
+#messages-list tr td:first-child {
+	width: 60px;
+}

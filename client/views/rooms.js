@@ -9,14 +9,26 @@ Template.rooms.helpers({
 			{type: '1-on-1', members: { $in: [Meteor.userId()] }}
 		]};
 
+		var userRooms = {};
+		if (Meteor.user().chat) {
+			userRooms = Meteor.user().chat.rooms;
+		}
+		console.log(userRooms);
+
 		// 
 		Rooms.find(query).forEach(function (room) {
-			if (room.type === '1-on-1' && room.creator != Meteor.userId()) {
+			// dynamic create room name
+			if (room.type === '1-on-1') {
 				var otherMember = _.reject(room.members, function (member) { return member === Meteor.userId() });
 
 				if (usersList && usersList[otherMember[0]]) {
 					room.name = usersList[otherMember[0]].profile.name;
 				}
+			}
+
+			// count unread message
+			if (userRooms[room._id] && room._id != Session.get('activeRoom')) {
+				room.unread = Messages.find({room: room._id, created: { $gte: userRooms[room._id].lastSeen }}).count();	
 			}
 
 			rooms.push(room);

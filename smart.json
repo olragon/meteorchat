@@ -5,6 +5,7 @@
     "crypto-md5": {},
     "gravatar": {},
     "module-loader": {},
-    "handlebar-helpers": {}
+    "handlebar-helpers": {},
+    "font-awesome": {}
   }
 }

@@ -7,7 +7,8 @@
       "crypto-md5": {},
       "gravatar": {},
       "module-loader": {},
-      "handlebar-helpers": {}
+      "handlebar-helpers": {},
+      "font-awesome": {}
     },
     "packages": {
       "bootstrap-3": {
@@ -39,6 +40,11 @@
         "git": "https://github.com/raix/Meteor-handlebar-helpers.git",
         "tag": "v0.0.9",
         "commit": "71e94c99462b8801a34c5363510758b6ff5f5ac7"
+      },
+      "font-awesome": {
+        "git": "https://github.com/nate-strauser/meteor-font-awesome.git",
+        "tag": "v4.0.3",
+        "commit": "61e9361384347547ae144f8228faa4deffda23db"
       },
       "crypto-base": {
         "git": "https://github.com/oortcloud/meteor-crypto-base.git",

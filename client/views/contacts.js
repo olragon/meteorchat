@@ -21,10 +21,10 @@ Template.contacts.events({
 		// find rooms for 2 users
 		var roomId = '';
 		var roomMems = [Meteor.userId(), $a.data('with')];
-		var query = Rooms.find({members: roomMems});
-		if (query.count() === 0) {
+		var room = Rooms.findOne({name: roomMems.join('_')});
+		if (!room) {
 			roomId = Rooms.insert({
-				name: $a.text(),
+				name: roomMems.join('_'),
 				description: '',
 				created: new Date(),
 				changed: new Date(),
@@ -33,10 +33,12 @@ Template.contacts.events({
 				creator: Meteor.userId()
 			});
 		} else {
-			roomId = query.fetch()[0];
+			roomId = room._id;
 		}
 
 		// set room to active
-		Session.set('activeRoom', roomId);
+		if (Session.get('activeRoom') != roomId) {
+			Session.set('activeRoom', roomId);
+		}
 	}
 });
