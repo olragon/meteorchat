@@ -54,3 +54,11 @@
 .overlay ol li {
 	text-align: center;
 }
+
+.list-group-item.active {
+	background-color: #428bca;
+}
+
+.list-group-item.active a {
+	color: white;
+}

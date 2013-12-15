@@ -5,7 +5,8 @@ Meteor.startup(function () {
 			description: 'Public',
 			members: ['__all__'],
 			created: new Date(),
-			changed: new Date()
+			changed: new Date(),
+			type: 'public'
 		});
 	}
 });

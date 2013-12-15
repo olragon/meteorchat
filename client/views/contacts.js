@@ -13,6 +13,9 @@ Template.contacts.events({
 	'click a[data-op="chat"]': function (e) {
 		var $a = $(e.target);
 
+		// prevent user chat with himself
+		if (Meteor.userId() === $a.data('with')) return;
+
 		// find rooms for 2 users
 		var roomId = '';
 		var roomMems = [Meteor.userId(), $a.data('with')];
@@ -23,7 +26,8 @@ Template.contacts.events({
 				description: '',
 				created: new Date(),
 				changed: new Date(),
-				members: roomMems
+				members: roomMems,
+				type: '1-on-1',
 			});
 		} else {
 			roomId = query.fetch()[0];

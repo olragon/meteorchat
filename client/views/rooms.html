@@ -2,9 +2,14 @@
 
 	<div class="list-group">
 		{{#each rooms}}
-		  <a href="#" data-op="join" data-room="{{_id}}" class="list-group-item {{#if $eq activeRoom _id}}active{{/if}}">
-		    {{name}}
-		  </a>
+			<div class="list-group-item {{#if $eq activeRoom _id}}active{{/if}}">
+				<a href="#" data-op="join" data-room="{{_id}}">
+				  {{name}}
+				</a>
+				<a href="#" data-op="remove" data-room="{{_id}}" class="pull-right">
+					x
+				</a>
+			</div>
 		{{/each}}
 	</div>
 
