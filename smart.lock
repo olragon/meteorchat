@@ -6,7 +6,8 @@
       "presence": {},
       "crypto-md5": {},
       "gravatar": {},
-      "module-loader": {}
+      "module-loader": {},
+      "handlebar-helpers": {}
     },
     "packages": {
       "bootstrap-3": {
@@ -33,6 +34,11 @@
         "git": "https://github.com/apendua/module-loader.git",
         "tag": "v0.5.1",
         "commit": "06c4f220272fb10dadec3ff431a47ce58e84cc8f"
+      },
+      "handlebar-helpers": {
+        "git": "https://github.com/raix/Meteor-handlebar-helpers.git",
+        "tag": "v0.0.9",
+        "commit": "71e94c99462b8801a34c5363510758b6ff5f5ac7"
       },
       "crypto-base": {
         "git": "https://github.com/oortcloud/meteor-crypto-base.git",

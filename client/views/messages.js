@@ -1,7 +1,27 @@
 Template.messages.helpers({
 	messages: function () {
+		// get active room
+		var activeRoom = Session.get('activeRoom');
+		var isPublicRoom = (Session.get('publicRoom') === activeRoom);
+
+		console.log(isPublicRoom);
+
+		// build message query
+		var query = {};
+
+		if (isPublicRoom) {
+			query = _.extend(query, {
+				$or: [
+					{room: {$exists: false}}, // message not in any room
+					{room: activeRoom}
+				]
+			});
+		} else {
+			query.room = activeRoom;
+		}
+
 		// get 200 latest messages
-		var messages = Messages.find({}, { limit: 200, sort: { created: -1 } }).fetch();
+		var messages = Messages.find(query, { limit: 200, sort: { created: -1 } }).fetch();
 
 		// sort messages by created time asc
 		messages = _.sortBy(messages, function (message) {

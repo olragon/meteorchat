@@ -1,6 +1,6 @@
 <template name="contacts">
 	Users online ({{users.length}})
 	{{#each users}}
-		<br><a href="#">{{profile.name}}</a>
+		<br><a href="#" data-op="chat" data-with="{{_id}}">{{profile.name}}</a>
 	{{/each}}
 </template>

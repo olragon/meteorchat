@@ -1,0 +1,11 @@
+<template name="rooms">
+
+	<div class="list-group">
+		{{#each rooms}}
+		  <a href="#" data-op="join" data-room="{{_id}}" class="list-group-item {{#if $eq activeRoom _id}}active{{/if}}">
+		    {{name}}
+		  </a>
+		{{/each}}
+	</div>
+
+</template>

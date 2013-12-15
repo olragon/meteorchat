@@ -4,6 +4,7 @@
     "presence": {},
     "crypto-md5": {},
     "gravatar": {},
-    "module-loader": {}
+    "module-loader": {},
+    "handlebar-helpers": {}
   }
 }

@@ -8,11 +8,14 @@ function submitForm(e) {
 	e.preventDefault();
 
 	var $form = $(e.target);
+
+	var roomId = Session.get('activeRoom');
 	var message = $form.serializeJSON();
 	message.created = new Date();
 	message.changed = new Date();
 	message.creator = Meteor.userId();
 	message.from = message.creator;
+	message.room = roomId;
 	Messages.insert(message, function (err, _id) {
 		if (err) {
 			alert('Lỗi', err);

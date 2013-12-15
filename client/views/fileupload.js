@@ -1,5 +1,4 @@
 Template.fileupload.rendered = function () {
-	console.log(this);
 	var $drop = $('#fileupload');
 	var $status = $('#fileupload .h3');
 	var $progress = $('#fileupload_progress .progress-bar');
@@ -39,7 +38,8 @@ Template.fileupload.rendered = function () {
 			onSuccess: function (InkBlobs) {
 				console.log(InkBlobs);
 				updateProgress(100);
-
+				
+				var roomId = Session.get('activeRoom');
 				var message = {};
 				message.type = 'file';
 				message.content = InkBlobs;
@@ -47,6 +47,7 @@ Template.fileupload.rendered = function () {
 				message.changed = new Date();
 				message.creator = Meteor.userId();
 				message.from = message.creator;
+				message.room = roomId;
 				Messages.insert(message, function (err, _id) {
 					console.log(err, _id);
 				});
