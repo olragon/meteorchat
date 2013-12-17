@@ -18,3 +18,6 @@ gravatar
 module-loader
 handlebar-helpers
 font-awesome
+accounts-facebook
+accounts-google
+accounts-twitter

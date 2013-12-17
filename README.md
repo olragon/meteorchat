@@ -9,14 +9,17 @@ Simple chat room based on Meteor.
 
 ## Features ##
 
-1. Member register, login, logout, lost password.
+1. Member register, login, logout, lost password
 2. Member public chat
-3. Rosters
+3. Rosters (friends list)
 4. Smart message display, grouping
 5. Enter to send message
 6. Avatar (Gravatar)
 7. Auto link
 8. Auto show image
+9. Login using Facebook, Google, Twitter
+10. One on one chat
+11. Share files (using http://filepicker.io)
 
 ## Requirements ##
 
@@ -34,3 +37,7 @@ To run code, you need install:
 
 1. `cd ~/app_directory`
 2. `mrt deploy app_name`
+
+## Development ##
+
+...
